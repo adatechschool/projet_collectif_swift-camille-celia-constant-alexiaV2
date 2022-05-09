@@ -25,10 +25,13 @@ struct SpotsDetail: View {
                 Text(spot.fields.surfBreak[0])
                 Text(String(spot.fields.difficultyLevel))
             }
+            
+            AsyncImage(url: URL(string: spot.fields.photos[0].thumbnails.large.url))´
+            
             Spacer()
             HStack {
                 Text(spot.fields.destination)
-                
+                    
                 Text(spot.fields.destinationStateCountry)
             }
         }
