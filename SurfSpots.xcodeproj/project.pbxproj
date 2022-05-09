@@ -14,6 +14,14 @@
 		D6513BAD2822B1D800467774 /* SurfSpotsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6513BAC2822B1D800467774 /* SurfSpotsTests.swift */; };
 		D6513BB72822B1D800467774 /* SurfSpotsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6513BB62822B1D800467774 /* SurfSpotsUITests.swift */; };
 		D6513BB92822B1D800467774 /* SurfSpotsUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6513BB82822B1D800467774 /* SurfSpotsUITestsLaunchTests.swift */; };
+		D6513BCC2822B2A000467774 /* Spot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6513BCB2822B2A000467774 /* Spot.swift */; };
+		D6513BD12822B41100467774 /* ModelData.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6513BD02822B41100467774 /* ModelData.swift */; };
+		D6513BD32822B50900467774 /* FavoriteButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6513BD22822B50900467774 /* FavoriteButton.swift */; };
+		D6513BD52822B56200467774 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6513BD42822B56200467774 /* MapView.swift */; };
+		D6513BD72822B5B500467774 /* SpotsList.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6513BD62822B5B500467774 /* SpotsList.swift */; };
+		D6513BD92822B67E00467774 /* SpotsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6513BD82822B67E00467774 /* SpotsRow.swift */; };
+		D6513BDB2822B71C00467774 /* SpotsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6513BDA2822B71C00467774 /* SpotsDetail.swift */; };
+		D69E96F42823CD4C0062C078 /* spotData.json in Resources */ = {isa = PBXBuildFile; fileRef = D69E96F32823CD4B0062C078 /* spotData.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +52,14 @@
 		D6513BB22822B1D800467774 /* SurfSpotsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SurfSpotsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6513BB62822B1D800467774 /* SurfSpotsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotsUITests.swift; sourceTree = "<group>"; };
 		D6513BB82822B1D800467774 /* SurfSpotsUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotsUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		D6513BCB2822B2A000467774 /* Spot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Spot.swift; sourceTree = "<group>"; };
+		D6513BD02822B41100467774 /* ModelData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ModelData.swift; sourceTree = "<group>"; };
+		D6513BD22822B50900467774 /* FavoriteButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteButton.swift; sourceTree = "<group>"; };
+		D6513BD42822B56200467774 /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		D6513BD62822B5B500467774 /* SpotsList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsList.swift; sourceTree = "<group>"; };
+		D6513BD82822B67E00467774 /* SpotsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsRow.swift; sourceTree = "<group>"; };
+		D6513BDA2822B71C00467774 /* SpotsDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpotsDetail.swift; sourceTree = "<group>"; };
+		D69E96F32823CD4B0062C078 /* spotData.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = spotData.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -95,7 +111,9 @@
 			isa = PBXGroup;
 			children = (
 				D6513B9B2822B1D400467774 /* SurfSpotsApp.swift */,
-				D6513B9D2822B1D400467774 /* ContentView.swift */,
+				D6513BC62822B21B00467774 /* Views */,
+				D6513BC92822B24D00467774 /* Models */,
+				D6513BC52822B20B00467774 /* Resources */,
 				D6513B9F2822B1D700467774 /* Assets.xcassets */,
 				D6513BA12822B1D700467774 /* Preview Content */,
 			);
@@ -125,6 +143,52 @@
 				D6513BB82822B1D800467774 /* SurfSpotsUITestsLaunchTests.swift */,
 			);
 			path = SurfSpotsUITests;
+			sourceTree = "<group>";
+		};
+		D6513BC52822B20B00467774 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D69E96F32823CD4B0062C078 /* spotData.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		D6513BC62822B21B00467774 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				D6513B9D2822B1D400467774 /* ContentView.swift */,
+				D6513BC82822B23B00467774 /* Spots */,
+				D6513BC72822B22E00467774 /* Helpers */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D6513BC72822B22E00467774 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				D6513BD22822B50900467774 /* FavoriteButton.swift */,
+				D6513BD42822B56200467774 /* MapView.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		D6513BC82822B23B00467774 /* Spots */ = {
+			isa = PBXGroup;
+			children = (
+				D6513BD62822B5B500467774 /* SpotsList.swift */,
+				D6513BDA2822B71C00467774 /* SpotsDetail.swift */,
+				D6513BD82822B67E00467774 /* SpotsRow.swift */,
+			);
+			path = Spots;
+			sourceTree = "<group>";
+		};
+		D6513BC92822B24D00467774 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D6513BCB2822B2A000467774 /* Spot.swift */,
+				D6513BD02822B41100467774 /* ModelData.swift */,
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -233,6 +297,7 @@
 			files = (
 				D6513BA32822B1D700467774 /* Preview Assets.xcassets in Resources */,
 				D6513BA02822B1D700467774 /* Assets.xcassets in Resources */,
+				D69E96F42823CD4C0062C078 /* spotData.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -257,7 +322,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D6513BD72822B5B500467774 /* SpotsList.swift in Sources */,
 				D6513B9E2822B1D400467774 /* ContentView.swift in Sources */,
+				D6513BD92822B67E00467774 /* SpotsRow.swift in Sources */,
+				D6513BD52822B56200467774 /* MapView.swift in Sources */,
+				D6513BD12822B41100467774 /* ModelData.swift in Sources */,
+				D6513BDB2822B71C00467774 /* SpotsDetail.swift in Sources */,
+				D6513BCC2822B2A000467774 /* Spot.swift in Sources */,
+				D6513BD32822B50900467774 /* FavoriteButton.swift in Sources */,
 				D6513B9C2822B1D400467774 /* SurfSpotsApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -422,6 +494,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -450,6 +523,7 @@
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				LD_RUNPATH_SEARCH_PATHS = (
