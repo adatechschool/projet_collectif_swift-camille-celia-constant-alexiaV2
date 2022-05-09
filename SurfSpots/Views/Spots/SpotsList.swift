@@ -12,7 +12,7 @@ struct SpotsList: View {
     @State private var showFavoritesOnly = false
     
     var filteredSpots: [Record] {
-        modelData.spots.records//.filter { spot in
+        modelData.spots//.filter { spot in
             //(!showFavoritesOnly)
         }
 
@@ -34,6 +34,10 @@ struct SpotsList: View {
                 }
             }
             .navigationTitle("Surf Spots")
+            .onAppear {
+                modelData.getSpots()
+            }
+            
         }
     }
 }

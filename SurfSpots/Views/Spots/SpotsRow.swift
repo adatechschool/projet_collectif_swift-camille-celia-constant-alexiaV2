@@ -28,7 +28,7 @@ struct SpotsRow: View {
 }
 
 struct SpotsRow_Previews: PreviewProvider {
-    static var spots = ModelData().spots.records
+    static var spots = ModelData().spots
     
     static var previews: some View {
         ZStack {

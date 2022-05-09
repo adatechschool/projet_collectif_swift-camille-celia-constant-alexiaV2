@@ -12,7 +12,7 @@ struct SpotsDetail: View {
     var spot: Record
     
     var spotIndex: Int {
-        $modelData.spots.records.firstIndex(where: { $0.id == spot.id })!
+        $modelData.spots.firstIndex(where: { $0.id == spot.id })!
     }
     
     var body: some View {
@@ -40,7 +40,7 @@ struct SpotsDetail_Previews: PreviewProvider {
     
     static var previews: some View {
         ZStack {
-            SpotsDetail(spot: modelData.spots.records[0])
+            SpotsDetail(spot: modelData.spots[0])
                 .environmentObject(modelData)
         }
     }
