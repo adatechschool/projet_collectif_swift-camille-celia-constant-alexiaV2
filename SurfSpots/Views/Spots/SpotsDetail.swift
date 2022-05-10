@@ -17,41 +17,51 @@ struct SpotsDetail: View {
     
     var body: some View {
         ScrollView{
-            //Diff lvl, Destination, Destinationstate
-            //Dates de saison, link, geocode
-            //image
             VStack {
                 //MapView()
                 //Geocode
                 Text(spot.fields.geocode)
                 
-                AsyncImage(url: URL(string: spot.fields.photos[0].thumbnails.large.url))
+                /*AsyncImage(url: URL(string: spot.fields.photos[0].thumbnails.large.url))*/
+                CircleImageLarge(spot: spot)
                 
                 HStack {
                     Text(spot.fields.destination)
-                    //isFavoriteButton
+                        .font(.largeTitle)
+                        .fontWeight(.bold)
+                        .multilineTextAlignment(.leading)
+                    Image(systemName: "star.fill")
+                        .foregroundColor(.yellow)
                     Text(String(spot.fields.difficultyLevel))
+                        .multilineTextAlignment(.trailing)
                     Text("/5")
+                        .multilineTextAlignment(.trailing)
                 }
                 
                 Spacer()
                 HStack {
                     Text(spot.fields.destinationStateCountry)
+                        .font(.title)
+                        .multilineTextAlignment(.leading)
                     
                     Text(spot.fields.surfBreak[0])
+                        .multilineTextAlignment(.trailing)
                 }
                 Divider()
             }
             VStack {
                 Text("Meilleure période")
+                    .font(.title)
                 HStack {
                     Text(spot.fields.seasonStart)
+                    //flèche
                     Text(spot.fields.seasonEnd)
                 }
                 Spacer()
                 Text("Plus d'information sur ce Spot")
                 //Link(destination: spot.fields.link)
             }
+            .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
         }
     }
 }

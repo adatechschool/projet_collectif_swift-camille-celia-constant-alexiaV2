@@ -12,18 +12,18 @@ struct SpotsRow: View {
     
     var body: some View {
         HStack {
-            //image
-            AsyncImage(url: URL(string: spot.fields.photos[0].thumbnails.small.url))
+            CircleImageSmall(spot: spot)
+            /*AsyncImage(url: URL(string: spot.fields.photos[0].thumbnails.small.url))*/
             /*.resizable()
              .frame(width: 50, height: 50)*/
             Text(spot.fields.destination)
             
             Spacer()
             
-            /*if spot.isFavorite {
+            //if spot.isFavorite {
                 Image(systemName: "star.fill")
                     .foregroundColor(.yellow)
-            }*/
+            //}
         }
     }
 }
