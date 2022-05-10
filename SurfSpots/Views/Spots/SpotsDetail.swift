@@ -16,17 +16,19 @@ struct SpotsDetail: View {
     }
     
     var body: some View {
+        ScrollView{
         //Diff lvl, Destination, Destinationstate
         //Dates de saison, link, geocode
         //image
         VStack {
+            //MapView()
+            Text(spot.fields.geocode)
             HStack {
-                
                 Text(spot.fields.surfBreak[0])
                 Text(String(spot.fields.difficultyLevel))
             }
             
-            AsyncImage(url: URL(string: spot.fields.photos[0].thumbnails.large.url))´
+            AsyncImage(url: URL(string: spot.fields.photos[0].thumbnails.large.url))
             
             Spacer()
             HStack {
@@ -34,6 +36,7 @@ struct SpotsDetail: View {
                     
                 Text(spot.fields.destinationStateCountry)
             }
+        }
         }
     }
 }

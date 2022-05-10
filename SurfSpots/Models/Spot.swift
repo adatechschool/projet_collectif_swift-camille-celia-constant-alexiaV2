@@ -8,6 +8,7 @@
 import SwiftUI
 import Foundation
 import CoreLocation
+import UIKit
 
 
 // MARK: - SpotsData
@@ -31,10 +32,25 @@ struct Fields: Codable,Identifiable {
     let photos: [Photo]
     let destinationStateCountry : String
     let address: String
-    let geocode: String
     let seasonStart: String
     let seasonEnd: String
     let link : String
+    
+    var geocode: String
+    /*var locationCoordinate: CLLocationCoordinate2D {
+            CLLocationCoordinate2D(
+                latitude: coordinates.latitude,
+                longitude: coordinates.longitude)
+        }*/
+    func fromBase64(word:String) -> String{
+        let base64Decoded = Data(base64Encoded : word)!
+        let decodedString = String(data: base64Decoded, encoding: .utf8)!
+        
+        return decodedString
+    }
+    
+    var stringDecode: String {fromBase64(word:geocode)}
+    
 
     enum CodingKeys: String, CodingKey {
         case surfBreak = "Surf Break"
@@ -70,3 +86,8 @@ struct Resolution: Codable {
     let url: String
     let width, height: Int
 }
+/*
+struct Coordinates: Hashable, Codable {
+    var latitude: Double
+    var longitude: Double
+}*/
