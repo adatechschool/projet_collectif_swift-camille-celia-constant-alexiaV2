@@ -50,7 +50,6 @@ struct Fields: Codable,Identifiable {
     }
     
     var stringDecode: String {fromBase64(word:geocode)}
-    
 
     enum CodingKeys: String, CodingKey {
         case surfBreak = "Surf Break"

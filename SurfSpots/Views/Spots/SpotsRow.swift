@@ -12,10 +12,11 @@ struct SpotsRow: View {
     
     var body: some View {
         HStack {
-            Text(spot.fields.destination)
+            //image
+            AsyncImage(url: URL(string: spot.fields.photos[0].thumbnails.small.url))
             /*.resizable()
              .frame(width: 50, height: 50)*/
-            //Text(spot.records.fields.address)
+            Text(spot.fields.destination)
             
             Spacer()
             
@@ -33,8 +34,8 @@ struct SpotsRow_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
         Group {
+            SpotsRow(spot: spots[0])
             SpotsRow(spot: spots[1])
-            //SpotsRow(spot: spots[1])
         }
         .previewLayout(.fixed(width: 300, height: 70))
     }

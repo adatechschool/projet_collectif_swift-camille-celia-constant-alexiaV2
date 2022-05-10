@@ -17,26 +17,41 @@ struct SpotsDetail: View {
     
     var body: some View {
         ScrollView{
-        //Diff lvl, Destination, Destinationstate
-        //Dates de saison, link, geocode
-        //image
-        VStack {
-            //MapView()
-            Text(spot.fields.geocode)
-            HStack {
-                Text(spot.fields.surfBreak[0])
-                Text(String(spot.fields.difficultyLevel))
-            }
-            
-            AsyncImage(url: URL(string: spot.fields.photos[0].thumbnails.large.url))
-            
-            Spacer()
-            HStack {
-                Text(spot.fields.destination)
+            //Diff lvl, Destination, Destinationstate
+            //Dates de saison, link, geocode
+            //image
+            VStack {
+                //MapView()
+                //Geocode
+                Text(spot.fields.geocode)
+                
+                AsyncImage(url: URL(string: spot.fields.photos[0].thumbnails.large.url))
+                
+                HStack {
+                    Text(spot.fields.destination)
+                    //isFavoriteButton
+                    Text(String(spot.fields.difficultyLevel))
+                    Text("/5")
+                }
+                
+                Spacer()
+                HStack {
+                    Text(spot.fields.destinationStateCountry)
                     
-                Text(spot.fields.destinationStateCountry)
+                    Text(spot.fields.surfBreak[0])
+                }
+                Divider()
             }
-        }
+            VStack {
+                Text("Meilleure période")
+                HStack {
+                    Text(spot.fields.seasonStart)
+                    Text(spot.fields.seasonEnd)
+                }
+                Spacer()
+                Text("Plus d'information sur ce Spot")
+                //Link(destination: spot.fields.link)
+            }
         }
     }
 }
