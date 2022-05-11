@@ -49,6 +49,8 @@ struct Fields: Codable,Identifiable {
         return decodedString
     }
     
+    
+    
     var stringDecode: String {fromBase64(word:geocode)}
 
     enum CodingKeys: String, CodingKey {

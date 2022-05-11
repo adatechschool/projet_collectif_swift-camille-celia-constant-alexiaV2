@@ -14,9 +14,11 @@ struct CircleImageSmall: View {
         AsyncImage(url: URL(string: spot.fields.photos[0].thumbnails.small.url))
             .clipShape(Circle())
             .overlay {
-                Circle().stroke(.white, lineWidth: 4)
+                Circle().stroke(.white, lineWidth: 1)
             }
-            .shadow(radius: 7)
+            
+            .frame(width: 50, height:50)
+            .shadow(radius: 2)
     }
 }
 

@@ -15,53 +15,55 @@ struct SpotsDetail: View {
         $modelData.spots.firstIndex(where: { $0.id == spot.id })!
     }
     
+    
     var body: some View {
         ScrollView{
             VStack {
                 //MapView()
-                //Geocode
-                Text(spot.fields.geocode)
-                
-                /*AsyncImage(url: URL(string: spot.fields.photos[0].thumbnails.large.url))*/
+               // Text(spot.fields.stringDecode)
                 CircleImageLarge(spot: spot)
-                
-                HStack {
-                    Text(spot.fields.destination)
-                        .font(.largeTitle)
-                        .fontWeight(.bold)
-                        .multilineTextAlignment(.leading)
-                    Image(systemName: "star.fill")
-                        .foregroundColor(.yellow)
-                    Text(String(spot.fields.difficultyLevel))
-                        .multilineTextAlignment(.trailing)
-                    Text("/5")
-                        .multilineTextAlignment(.trailing)
+                VStack(alignment: .leading) {
+                    HStack {
+                        Text(spot.fields.destination)
+                            .font(.title)
+                            .fontWeight(.bold)
+                        
+                        Image(systemName: "star.fill")
+                            .foregroundColor(.yellow)
+                        Spacer()
+                        Text("Difficulté :")
+                        Text(String(spot.fields.difficultyLevel) + "/5")
+                    }
+                    Spacer()
+                    HStack {
+                        Text(spot.fields.destinationStateCountry)
+                            .font(.subheadline)
+                        Spacer()
+                        Text(spot.fields.surfBreak[0])
+                    }
                 }
-                
-                Spacer()
-                HStack {
-                    Text(spot.fields.destinationStateCountry)
-                        .font(.title)
-                        .multilineTextAlignment(.leading)
-                    
-                    Text(spot.fields.surfBreak[0])
-                        .multilineTextAlignment(.trailing)
-                }
+                .padding()
                 Divider()
             }
             VStack {
                 Text("Meilleure période")
-                    .font(.title)
+                    .font(.headline)
                 HStack {
                     Text(spot.fields.seasonStart)
-                    //flèche
+                    Text("➟")
+                        .font(.title)
                     Text(spot.fields.seasonEnd)
                 }
                 Spacer()
-                Text("Plus d'information sur ce Spot")
-                //Link(destination: spot.fields.link)
+                HStack {
+                Text("Plus d'information sur ce")
+                Link("Spot",destination: URL(string: spot.fields.link)!)
+                    .environment(\.openURL, OpenURLAction { url in
+                        Swift.print("Open \(url)")
+                        return .handled
+                    })
+                }
             }
-            .multilineTextAlignment(/*@START_MENU_TOKEN@*/.leading/*@END_MENU_TOKEN@*/)
         }
     }
 }

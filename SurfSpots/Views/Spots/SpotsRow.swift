@@ -13,16 +13,18 @@ struct SpotsRow: View {
     var body: some View {
         HStack {
             CircleImageSmall(spot: spot)
-            /*AsyncImage(url: URL(string: spot.fields.photos[0].thumbnails.small.url))*/
-            /*.resizable()
-             .frame(width: 50, height: 50)*/
+                .alignmentGuide(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=Guide@*/.leading/*@END_MENU_TOKEN@*/) { dimension in
+                    /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/dimension[.top]/*@END_MENU_TOKEN@*/
+                }
+
             Text(spot.fields.destination)
             
             Spacer()
             
             //if spot.isFavorite {
-                Image(systemName: "star.fill")
+            if spot.fields.destination == "Hossegor"||spot.fields.destination == "Bolinas"||spot.fields.destination == "Pasta Point" { Image(systemName: "star.fill")
                     .foregroundColor(.yellow)
+            }
             //}
         }
     }
