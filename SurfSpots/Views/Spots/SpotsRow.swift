@@ -22,10 +22,13 @@ struct SpotsRow: View {
             Spacer()
             
             //if spot.isFavorite {
-            if spot.fields.destination == "Hossegor"||spot.fields.destination == "Bolinas"||spot.fields.destination == "Pasta Point" { Image(systemName: "star.fill")
+            if spot.fields.destination == "Pipeline"||spot.fields.destination == "Superbank"||spot.fields.destination == "Pasta Point" { Image(systemName: "star.fill")
                     .foregroundColor(.yellow)
             }
             //}
+            if spot.fields.destination == "Hossegor"||spot.fields.destination == "Bolinas"||spot.fields.destination == "Horseshoe Bay Beach"||spot.fields.destination == "Black's Beach"||spot.fields.destination == "Potrero Grande" { Image(systemName: "xmark.diamond.fill")
+                    .foregroundColor(.red)
+            }
         }
     }
 }

@@ -10,28 +10,37 @@ import MapKit
 import CoreLocation
 
 struct MapView: View {
-    var coordinate: CLLocationCoordinate2D
+    
+    var geocode: String
     
     @State private var region = MKCoordinateRegion()
     
     var body: some View {
         Map(coordinateRegion: $region)
             .onAppear {
-                setRegion(coordinate)
+                setRegion(geocode)
             }
     }
     
-    private func setRegion(_ coordinate: CLLocationCoordinate2D) {
+    private func setRegion(_ geocode: String) {
+        guard let res = geocode.base64Decoded() else {return}
+        let jsonData = res.data(using: .utf8)!
+        let decoder = JSONDecoder()
+        let geocodeJson : Geocode = try! decoder.decode(Geocode.self, from: jsonData)
+        let lat = geocodeJson.o.lat
+        let lng = geocodeJson.o.lng
+        
+        
         region = MKCoordinateRegion(
-            center: coordinate,
+            center: CLLocationCoordinate2D(latitude: lat, longitude: lng),
             span: MKCoordinateSpan(latitudeDelta: 0.2, longitudeDelta: 0.2)
         )
     }
 }
-
+/*
 struct MapView_Previews: PreviewProvider {
     static var previews: some View {
-        MapView(coordinate: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868))
+        MapView(geocode: CLLocationCoordinate2D(latitude: 34.011_286, longitude: -116.166_868))
     }
-}
+}*/
 

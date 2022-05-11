@@ -31,28 +31,12 @@ struct Fields: Codable,Identifiable {
     let destination: String
     let photos: [Photo]
     let destinationStateCountry : String
+    let geocode: String
     let address: String
     let seasonStart: String
     let seasonEnd: String
     let link : String
     
-    var geocode: String
-    /*var locationCoordinate: CLLocationCoordinate2D {
-            CLLocationCoordinate2D(
-                latitude: coordinates.latitude,
-                longitude: coordinates.longitude)
-        }*/
-    func fromBase64(word:String) -> String{
-        let base64Decoded = Data(base64Encoded : word)!
-        let decodedString = String(data: base64Decoded, encoding: .utf8)!
-        
-        return decodedString
-    }
-    
-    
-    
-    var stringDecode: String {fromBase64(word:geocode)}
-
     enum CodingKeys: String, CodingKey {
         case surfBreak = "Surf Break"
         case difficultyLevel = "Difficulty Level"
@@ -87,8 +71,32 @@ struct Resolution: Codable {
     let url: String
     let width, height: Int
 }
-/*
-struct Coordinates: Hashable, Codable {
-    var latitude: Double
-    var longitude: Double
-}*/
+
+struct Geocode: Codable {
+    
+    var i: String
+    var o: Obj
+    var e: Int
+}
+
+struct Obj: Codable {
+    var status, formattedAddress: String, lat, lng: Double
+}
+
+extension String {
+    
+    func base64Encoded() -> String? {
+        return data(using: .utf8)?.base64EncodedString()
+    }
+    
+    func base64Decoded() -> String? {
+        guard let data = Data(base64Encoded : self, options: .ignoreUnknownCharacters) else
+        { return nil}
+        return String(data: data, encoding: .utf8)
+    }
+}
+//A FINIR
+struct Coordinates : Codable {
+    var latitude : Double
+    var longitude : Double
+}

@@ -19,9 +19,14 @@ struct SpotsDetail: View {
     var body: some View {
         ScrollView{
             VStack {
-                //MapView()
+                MapView(geocode: spot.fields.geocode)
+                    .ignoresSafeArea(edges: .top)
+                    .frame(height: 300)
                // Text(spot.fields.stringDecode)
                 CircleImageLarge(spot: spot)
+                    .offset(y: -130)
+                    .padding(.bottom, -130)
+                
                 VStack(alignment: .leading) {
                     HStack {
                         Text(spot.fields.destination)
@@ -42,9 +47,10 @@ struct SpotsDetail: View {
                         Text(spot.fields.surfBreak[0])
                     }
                 }
-                .padding()
                 Divider()
+                    .padding()
             }
+            
             VStack {
                 Text("Meilleure période")
                     .font(.headline)

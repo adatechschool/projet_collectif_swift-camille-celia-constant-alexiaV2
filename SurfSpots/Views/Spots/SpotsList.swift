@@ -38,6 +38,7 @@ struct SpotsList: View {
                 modelData.getSpots()
             }
             
+            
         }
     }
 }
