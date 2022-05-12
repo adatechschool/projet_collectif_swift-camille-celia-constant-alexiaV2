@@ -17,59 +17,59 @@ struct SpotsDetail: View {
     
     
     var body: some View {
-        ScrollView{
-            VStack {
-                MapView(geocode: spot.fields.geocode)
-                    .ignoresSafeArea(edges: .top)
-                    .frame(height: 300)
-               // Text(spot.fields.stringDecode)
-                CircleImageLarge(spot: spot)
-                    .offset(y: -130)
-                    .padding(.bottom, -130)
-                
-                VStack(alignment: .leading) {
-                    HStack {
-                        Text(spot.fields.destination)
-                            .font(.title)
-                            .fontWeight(.bold)
-                        
-                        Image(systemName: "star.fill")
-                            .foregroundColor(.yellow)
+        VStack {
+            ScrollView {
+                VStack {
+                    MapView(geocode: spot.fields.geocode)
+                        .ignoresSafeArea(edges: .top)
+                        .frame(height: 300)
+                    // Text(spot.fields.stringDecode)
+                    CircleImageLarge(spot: spot)
+                        .offset(y: -130)
+                        .padding(.bottom, -130)
+                    
+                    VStack(alignment: .leading) {
+                        HStack {
+                            Text(spot.fields.destination)
+                                .font(.title)
+                                .fontWeight(.bold)
+                            
+                            Image(systemName: "star.fill")
+                                .foregroundColor(.yellow)
+                            Spacer()
+                            Text("Difficulty :")
+                            Text(String(spot.fields.difficultyLevel) + "/5 🔥")
+                        }
                         Spacer()
-                        Text("Difficulté :")
-                        Text(String(spot.fields.difficultyLevel) + "/5")
+                        HStack {
+                            Text(spot.fields.destinationStateCountry)
+                                .font(.subheadline)
+                            Spacer()
+                            Text(spot.fields.surfBreak[0])
+                        }
+                    }
+                    .padding()
+                    Divider()
+                }
+                
+                VStack {
+                    Text("Peak Season")
+                        .font(.headline)
+                    HStack {
+                        Text(spot.fields.seasonStart)
+                        Text("➟")
+                            .font(.title)
+                        Text(spot.fields.seasonEnd)
                     }
                     Spacer()
                     HStack {
-                        Text(spot.fields.destinationStateCountry)
-                            .font(.subheadline)
-                        Spacer()
-                        Text(spot.fields.surfBreak[0])
+                        Text("More information about this")
+                        Link("Spot", destination: URL(string: spot.fields.link)!)
                     }
                 }
-                Divider()
-                    .padding()
+                
             }
-            
-            VStack {
-                Text("Meilleure période")
-                    .font(.headline)
-                HStack {
-                    Text(spot.fields.seasonStart)
-                    Text("➟")
-                        .font(.title)
-                    Text(spot.fields.seasonEnd)
-                }
-                Spacer()
-                HStack {
-                Text("Plus d'information sur ce")
-                Link("Spot",destination: URL(string: spot.fields.link)!)
-                    .environment(\.openURL, OpenURLAction { url in
-                        Swift.print("Open \(url)")
-                        return .handled
-                    })
-                }
-            }
+            Spacer()
         }
     }
 }

@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D619A369282CF1D200976A49 /* NewSpot.swift in Sources */ = {isa = PBXBuildFile; fileRef = D619A368282CF1D200976A49 /* NewSpot.swift */; };
 		D6513B9C2822B1D400467774 /* SurfSpotsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6513B9B2822B1D400467774 /* SurfSpotsApp.swift */; };
 		D6513B9E2822B1D400467774 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D6513B9D2822B1D400467774 /* ContentView.swift */; };
 		D6513BA02822B1D700467774 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D6513B9F2822B1D700467774 /* Assets.xcassets */; };
@@ -44,6 +45,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D619A368282CF1D200976A49 /* NewSpot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewSpot.swift; sourceTree = "<group>"; };
 		D6513B982822B1D300467774 /* SurfSpots.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SurfSpots.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D6513B9B2822B1D400467774 /* SurfSpotsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SurfSpotsApp.swift; sourceTree = "<group>"; };
 		D6513B9D2822B1D400467774 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 				D6513BD62822B5B500467774 /* SpotsList.swift */,
 				D6513BDA2822B71C00467774 /* SpotsDetail.swift */,
 				D6513BD82822B67E00467774 /* SpotsRow.swift */,
+				D619A368282CF1D200976A49 /* NewSpot.swift */,
 			);
 			path = Spots;
 			sourceTree = "<group>";
@@ -332,6 +335,7 @@
 				D6513B9E2822B1D400467774 /* ContentView.swift in Sources */,
 				D6EE9E7D282A96FA00DD79B2 /* CircleImageSmall.swift in Sources */,
 				D6513BD92822B67E00467774 /* SpotsRow.swift in Sources */,
+				D619A369282CF1D200976A49 /* NewSpot.swift in Sources */,
 				D6513BD52822B56200467774 /* MapView.swift in Sources */,
 				D6513BD12822B41100467774 /* ModelData.swift in Sources */,
 				D6513BDB2822B71C00467774 /* SpotsDetail.swift in Sources */,

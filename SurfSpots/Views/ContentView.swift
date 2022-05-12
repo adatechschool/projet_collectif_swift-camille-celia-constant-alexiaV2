@@ -8,9 +8,28 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var selection: Tab = .spots
+    
+    enum Tab {
+            case spots
+            case newSpot
+        }
+    
     var body: some View {
-        //Text("Hello World")
-        SpotsList()
+        TabView(selection: $selection){
+            SpotsList()
+                .tabItem {
+                    Label("Surf Spots", systemImage:"wind")
+                }
+                .tag(Tab.spots)
+            
+            NewSpot()
+                .tabItem {
+                   Label("Add Spot", systemImage:"plus")
+                }
+                .tag(Tab.newSpot)
+        }
     }
 }
 

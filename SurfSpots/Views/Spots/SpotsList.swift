@@ -33,7 +33,7 @@ struct SpotsList: View {
                     }
                 }
             }
-            .navigationTitle("Surf Spots")
+            .navigationTitle("Surf Spots 🌊")
             .onAppear {
                 modelData.getSpots()
             }
