@@ -15,15 +15,13 @@ struct SpotsDetail: View {
         $modelData.spots.firstIndex(where: { $0.id == spot.id })!
     }
     
-    
     var body: some View {
-        VStack {
+        GeometryReader { geometry in
             ScrollView {
                 VStack {
                     MapView(geocode: spot.fields.geocode)
-                        .ignoresSafeArea(edges: .top)
-                        .frame(height: 300)
-                    // Text(spot.fields.stringDecode)
+                        .frame(height: 400)
+                    
                     CircleImageLarge(spot: spot)
                         .offset(y: -130)
                         .padding(.bottom, -130)
@@ -45,7 +43,7 @@ struct SpotsDetail: View {
                             Text(spot.fields.destinationStateCountry)
                                 .font(.subheadline)
                             Spacer()
-                            Text(spot.fields.surfBreak[0])
+                            Text(spot.fields.surfBreak[0].rawValue)
                         }
                     }
                     .padding()
@@ -69,6 +67,7 @@ struct SpotsDetail: View {
                 }
                 
             }
+            .ignoresSafeArea(edges: .top)
             Spacer()
         }
     }

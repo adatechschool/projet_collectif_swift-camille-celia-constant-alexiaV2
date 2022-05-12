@@ -26,7 +26,7 @@ struct Record: Codable, Identifiable {
 struct Fields: Codable,Identifiable {
     var id: UUID = UUID()
     
-    let surfBreak: [String]
+    let surfBreak: [Category]
     let difficultyLevel: Int
     let destination: String
     let photos: [Photo]
@@ -37,6 +37,13 @@ struct Fields: Codable,Identifiable {
     let seasonEnd: String
     let link : String
     
+    enum Category: String, CaseIterable, Codable {
+        case beachBreak = "Beach Break"
+        case reefBreak = "Reef Break"
+        case pointBreak = "Point Break"
+        case rivermouthBreak = "Rivermouth Break"
+        case outerBanks = "Outer Banks"
+    }
     enum CodingKeys: String, CodingKey {
         case surfBreak = "Surf Break"
         case difficultyLevel = "Difficulty Level"
@@ -53,11 +60,7 @@ struct Fields: Codable,Identifiable {
 
 // MARK: - Photo
 struct Photo: Codable {
-    //let id: String
     let url: String
-    //let filename: String
-    //let size: Int
-    //let type: String
     let thumbnails: Thumbnails
 }
 
@@ -95,7 +98,7 @@ extension String {
         return String(data: data, encoding: .utf8)
     }
 }
-//A FINIR
+
 struct Coordinates : Codable {
     var latitude : Double
     var longitude : Double

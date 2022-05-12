@@ -16,7 +16,7 @@ struct SpotsRow: View {
                 .alignmentGuide(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=Guide@*/.leading/*@END_MENU_TOKEN@*/) { dimension in
                     /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/dimension[.top]/*@END_MENU_TOKEN@*/
                 }
-
+            
             Text(spot.fields.destination)
             
             Spacer()
@@ -38,11 +38,11 @@ struct SpotsRow_Previews: PreviewProvider {
     
     static var previews: some View {
         ZStack {
-        Group {
-            SpotsRow(spot: spots[0])
-            SpotsRow(spot: spots[1])
+            Group {
+                SpotsRow(spot: spots[0])
+                SpotsRow(spot: spots[1])
+            }
+            .previewLayout(.fixed(width: 300, height: 70))
         }
-        .previewLayout(.fixed(width: 300, height: 70))
     }
-}
 }

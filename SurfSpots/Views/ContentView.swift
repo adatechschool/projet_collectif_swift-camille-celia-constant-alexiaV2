@@ -14,10 +14,16 @@ struct ContentView: View {
     enum Tab {
             case spots
             case newSpot
+            case categories
         }
     
     var body: some View {
         TabView(selection: $selection){
+            SpotsCategory()
+                .tabItem{
+                    Label("Categories", systemImage:"square.grid.2x2.fill")
+                }
+                .tag(Tab.categories)
             SpotsList()
                 .tabItem {
                     Label("Surf Spots", systemImage:"wind")

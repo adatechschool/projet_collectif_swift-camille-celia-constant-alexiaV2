@@ -8,10 +8,15 @@
 import Foundation
 import Combine
 
-
-
 class ModelData: ObservableObject {
     @Published var spots: [Record] = []
+    
+    var categories: [String: [Record]] {
+        Dictionary(
+            grouping: spots, by: {$0.fields.surfBreak[0].rawValue})
+    }
+    
+    @Published var featured: Record?
     
     func getSpots() {
         guard let url = URL(string: "https://api.airtable.com/v0/appxT9ln6ixuCb3o1/Surf%20Destinations?api_key=keyQSukZJYb1v9UCV") else { fatalError("Missing URL") }
@@ -32,6 +37,7 @@ class ModelData: ObservableObject {
                     do {
                         let decodedRecords = try JSONDecoder().decode(SpotsData.self, from: data)
                         self.spots = decodedRecords.records
+                        self.featured = self.spots.randomElement()
                     } catch let error {
                         print("Error decoding: ", error)
                     }

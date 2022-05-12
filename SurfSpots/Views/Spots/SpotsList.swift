@@ -15,7 +15,6 @@ struct SpotsList: View {
         modelData.spots//.filter { spot in
             //(!showFavoritesOnly)
         }
-
     
     var body: some View {
         NavigationView {
@@ -37,8 +36,6 @@ struct SpotsList: View {
             .onAppear {
                 modelData.getSpots()
             }
-            
-            
         }
     }
 }

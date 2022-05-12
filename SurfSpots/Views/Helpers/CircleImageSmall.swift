@@ -16,7 +16,7 @@ struct CircleImageSmall: View {
             .overlay {
                 Circle().stroke(.white, lineWidth: 1)
             }
-            
+        
             .frame(width: 50, height:50)
             .shadow(radius: 2)
     }
