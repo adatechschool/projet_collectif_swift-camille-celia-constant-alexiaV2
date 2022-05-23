@@ -12,15 +12,15 @@ struct SpotsDetail: View {
     var spot: Record
     
     var spotIndex: Int {
-        $modelData.spots.firstIndex(where: { $0.id == spot.id })!
+        modelData.spots.firstIndex(where: { $0.id == spot.id })!
     }
     
     var body: some View {
         GeometryReader { geometry in
             ScrollView {
                 VStack {
-                    MapView(geocode: spot.fields.geocode)
-                        .frame(height: 400)
+                    /*MapView(geocode: spot.geocode)
+                     .frame(height: 400)*/
                     
                     CircleImageLarge(spot: spot)
                         .offset(y: -130)
@@ -28,22 +28,23 @@ struct SpotsDetail: View {
                     
                     VStack(alignment: .leading) {
                         HStack {
-                            Text(spot.fields.destination)
+                            Text(spot.name)
                                 .font(.title)
                                 .fontWeight(.bold)
                             
-                            Image(systemName: "star.fill")
-                                .foregroundColor(.yellow)
+                            FavoriteButton(isSet: $modelData.spots[spotIndex].favorite)
+                            
                             Spacer()
+                            
                             Text("Difficulty :")
-                            Text(String(spot.fields.difficultyLevel) + "/5 🔥")
+                            Text(String(spot.difficultyLevel) + "/5 🔥")
                         }
                         Spacer()
                         HStack {
-                            Text(spot.fields.destinationStateCountry)
+                            Text(spot.stateCountry)
                                 .font(.subheadline)
                             Spacer()
-                            Text(spot.fields.surfBreak[0].rawValue)
+                            Text(spot.surfBreak/*[0].rawValue*/)
                         }
                     }
                     .padding()
@@ -54,15 +55,15 @@ struct SpotsDetail: View {
                     Text("Peak Season")
                         .font(.headline)
                     HStack {
-                        Text(spot.fields.seasonStart)
+                        Text(spot.seasonStart)
                         Text("➟")
                             .font(.title)
-                        Text(spot.fields.seasonEnd)
+                        Text(spot.seasonEnd)
                     }
                     Spacer()
                     HStack {
                         Text("More information about this")
-                        Link("Spot", destination: URL(string: spot.fields.link)!)
+                        Link("Spot", destination: URL(string: spot.link)!)
                     }
                 }
                 

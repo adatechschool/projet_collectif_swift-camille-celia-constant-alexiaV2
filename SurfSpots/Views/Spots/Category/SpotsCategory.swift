@@ -14,7 +14,7 @@ struct SpotsCategory: View {
     var body: some View {
         NavigationView {
             List {
-                AsyncImage(url: URL(string: modelData.featured?.fields.photos[0].thumbnails.large.url ?? "https://jardinage.lemonde.fr/images/dossiers/2021-01/choisir-chaton-101948.jpg"), content:{image in
+                AsyncImage(url: URL(string: modelData.featured?.photos ?? "https://jardinage.lemonde.fr/images/dossiers/2021-01/choisir-chaton-101948.jpg"), content:{image in
                     image
                         .resizable()
                         .scaledToFill()

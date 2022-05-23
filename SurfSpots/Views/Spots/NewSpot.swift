@@ -14,7 +14,7 @@ struct NewSpot: View {
     @State var surfBreak : String = ""
     @State var img : String = ""
     @State var diff = "1"
-    let difficulties = ["1 😌", "2 😎", "3 😳", "4 🫣", "5 🤕"]
+    let difficulties = ["1 😌", "2 😎", "3 😳", "4 🫣", "5 ☠️"]
     @State private var dateStart = Date()
     @State private var dateEnd = Date()
     @State var link : String = ""

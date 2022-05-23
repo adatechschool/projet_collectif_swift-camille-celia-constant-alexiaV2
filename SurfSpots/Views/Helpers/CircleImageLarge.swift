@@ -11,7 +11,7 @@ struct CircleImageLarge: View {
     var spot: Record
     
     var body: some View {
-        AsyncImage(url: URL(string: spot.fields.photos[0].thumbnails.large.url), content:{image in
+        AsyncImage(url: URL(string: spot.photos), content:{image in
             image.resizable()
                 .frame(width:300, height:300 )
         },

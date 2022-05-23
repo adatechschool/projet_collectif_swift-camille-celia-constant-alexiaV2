@@ -13,7 +13,7 @@ struct CategoryItem: View {
     
     var body: some View {
         VStack (alignment: .leading) {
-            AsyncImage(url: URL(string: spot.fields.photos[0].thumbnails.large.url), content:{image in
+            AsyncImage(url: URL(string: spot.photos), content:{image in
                 image
                     .renderingMode(.original)
                     .resizable()
@@ -25,7 +25,7 @@ struct CategoryItem: View {
             }
             )
             
-            Text(spot.fields.destination)
+            Text(spot.name)
                 .foregroundColor(.primary)
                 .font(.caption)
         }

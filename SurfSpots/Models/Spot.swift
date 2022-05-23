@@ -4,57 +4,48 @@
 //
 //  Created by Camille FOL on 04/05/2022.
 //
-
 import SwiftUI
 import Foundation
 import CoreLocation
 import UIKit
 
-
-// MARK: - SpotsData
-struct SpotsData: Codable {
-    var records: [Record]
-}
-
 // MARK: - Record
-struct Record: Codable, Identifiable {
-    let id: String
-    let fields: Fields
-}
-
-// MARK: - Fields
-struct Fields: Codable,Identifiable {
-    var id: UUID = UUID()
-    
-    let surfBreak: [Category]
+struct Record: Codable, Identifiable, Hashable {
+    //var id : UUID = UUID()
+    let id : Int
+    let name: String
+    let surfBreak: String //[Category]
     let difficultyLevel: Int
-    let destination: String
-    let photos: [Photo]
-    let destinationStateCountry : String
-    let geocode: String
+    var favorite : Bool
+    let stateCountry : String
     let address: String
+    let link : String
+    let photos: String //[Photo]
     let seasonStart: String
     let seasonEnd: String
-    let link : String
+    let createdTime : String
     
-    enum Category: String, CaseIterable, Codable {
+    /*enum Category: String, CaseIterable, Codable {
         case beachBreak = "Beach Break"
         case reefBreak = "Reef Break"
         case pointBreak = "Point Break"
         case rivermouthBreak = "Rivermouth Break"
         case outerBanks = "Outer Banks"
-    }
+    }*/
+    
     enum CodingKeys: String, CodingKey {
+        case id = "ID"
+        case name = "Name"
         case surfBreak = "Surf Break"
         case difficultyLevel = "Difficulty Level"
-        case destination = "Destination"
-        case photos = "Photos"
-        case destinationStateCountry = "Destination State/Country"
+        case favorite = "Favorite"
+        case stateCountry = "State/Country"
         case address = "Address"
-        case geocode = "Geocode"
-        case seasonStart = "Peak Surf Season Begins"
-        case seasonEnd = "Peak Surf Season Ends"
-        case link = "Magic Seaweed Link"
+        case link = "Link"
+        case photos = "Photos"
+        case seasonStart = "Season Start"
+        case seasonEnd = "Season End"
+        case createdTime = "createdTime"
     }
 }
 

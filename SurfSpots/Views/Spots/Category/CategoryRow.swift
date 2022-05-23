@@ -41,7 +41,7 @@ struct CategoryRow_Previews: PreviewProvider {
     
     static var previews: some View {
         CategoryRow(
-            categoryName: spots[0].fields.surfBreak[0].rawValue,
+            categoryName: spots[0].surfBreak/*[0].rawValue*/,
             items: Array(spots.prefix(4))
         )
     }

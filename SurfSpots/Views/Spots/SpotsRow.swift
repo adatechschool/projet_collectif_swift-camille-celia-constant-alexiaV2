@@ -17,17 +17,13 @@ struct SpotsRow: View {
                     /*@START_MENU_TOKEN@*//*@PLACEHOLDER=Value@*/dimension[.top]/*@END_MENU_TOKEN@*/
                 }
             
-            Text(spot.fields.destination)
+            Text(spot.name)
             
             Spacer()
             
-            //if spot.isFavorite {
-            if spot.fields.destination == "Pipeline"||spot.fields.destination == "Superbank"||spot.fields.destination == "Pasta Point" { Image(systemName: "star.fill")
+            if spot.favorite {
+              Image(systemName: "star.fill")
                     .foregroundColor(.yellow)
-            }
-            //}
-            if spot.fields.destination == "Hossegor"||spot.fields.destination == "Bolinas"||spot.fields.destination == "Horseshoe Bay Beach"||spot.fields.destination == "Black's Beach"||spot.fields.destination == "Potrero Grande" { Image(systemName: "xmark.diamond.fill")
-                    .foregroundColor(.red)
             }
         }
     }

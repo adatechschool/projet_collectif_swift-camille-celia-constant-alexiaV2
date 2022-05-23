@@ -10,6 +10,7 @@ import SwiftUI
 @main
 struct SurfSpotsApp: App {
     @StateObject private var modelData = ModelData()
+    
     var body: some Scene {
         WindowGroup {
             ContentView()

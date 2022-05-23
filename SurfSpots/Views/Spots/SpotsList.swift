@@ -12,9 +12,10 @@ struct SpotsList: View {
     @State private var showFavoritesOnly = false
     
     var filteredSpots: [Record] {
-        modelData.spots//.filter { spot in
-            //(!showFavoritesOnly)
+        modelData.spots.filter { spot in
+            (!showFavoritesOnly || spot.favorite)
         }
+    }
     
     var body: some View {
         NavigationView {

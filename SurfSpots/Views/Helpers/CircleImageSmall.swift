@@ -11,16 +11,22 @@ struct CircleImageSmall: View {
     var spot: Record
     
     var body: some View {
-        AsyncImage(url: URL(string: spot.fields.photos[0].thumbnails.small.url))
-            .clipShape(Circle())
-            .overlay {
-                Circle().stroke(.white, lineWidth: 1)
-            }
-        
-            .frame(width: 50, height:50)
-            .shadow(radius: 2)
+        AsyncImage(url: URL(string: spot.photos), content:{image in
+            image.resizable()
+                .frame(width:50, height:50 )
+        },
+                   placeholder: {
+            ProgressView()
+        }
+        )
+        .clipShape(Circle())
+        .overlay {
+            Circle().stroke(.white, lineWidth: 1)
+        }
+        .shadow(radius: 2)
     }
 }
+    
 
 struct CircleImageSmall_Previews: PreviewProvider {
     static let modelData = ModelData()

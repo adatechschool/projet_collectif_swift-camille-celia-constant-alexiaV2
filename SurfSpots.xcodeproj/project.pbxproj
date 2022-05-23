@@ -233,6 +233,8 @@
 			dependencies = (
 			);
 			name = SurfSpots;
+			packageProductDependencies = (
+			);
 			productName = SurfSpots;
 			productReference = D6513B982822B1D300467774 /* SurfSpots.app */;
 			productType = "com.apple.product-type.application";
@@ -305,6 +307,8 @@
 				Base,
 			);
 			mainGroup = D6513B8F2822B1D300467774;
+			packageReferences = (
+			);
 			productRefGroup = D6513B992822B1D300467774 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
