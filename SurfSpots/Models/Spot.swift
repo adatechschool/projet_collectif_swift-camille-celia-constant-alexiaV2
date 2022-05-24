@@ -12,18 +12,18 @@ import UIKit
 // MARK: - Record
 struct Record: Codable, Identifiable, Hashable {
     //var id : UUID = UUID()
-    let id : Int
-    let name: String
-    let surfBreak: String //[Category]
-    let difficultyLevel: Int
+    var id : Int
+    var name: String
+    var surfBreak: String //[Category]
+    var difficultyLevel: Int
     var favorite : Bool
-    let stateCountry : String
-    let address: String
-    let link : String
-    let photos: String //[Photo]
-    let seasonStart: String
-    let seasonEnd: String
-    let createdTime : String
+    var stateCountry : String
+    var address: String
+    var link : String
+    var photos: String //[Photo]
+    var seasonStart: String
+    var seasonEnd: String
+    var createdTime : String
     
     /*enum Category: String, CaseIterable, Codable {
         case beachBreak = "Beach Break"

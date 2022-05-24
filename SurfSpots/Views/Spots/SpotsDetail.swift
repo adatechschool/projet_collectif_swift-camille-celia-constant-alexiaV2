@@ -19,8 +19,8 @@ struct SpotsDetail: View {
         GeometryReader { geometry in
             ScrollView {
                 VStack {
-                    /*MapView(geocode: spot.geocode)
-                     .frame(height: 400)*/
+                    MapView(spotAddress: spot.address)
+                     .frame(height: 400)
                     
                     CircleImageLarge(spot: spot)
                         .offset(y: -130)
