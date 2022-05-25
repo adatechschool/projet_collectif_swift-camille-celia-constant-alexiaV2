@@ -16,7 +16,7 @@ struct NewSpot: View {
     @State var surfBreak : String = ""
     @State var img : String = ""
     @State var diff = "1"
-    let difficulties = ["1 😌", "2 😎", "3 😳", "4 🫣", "5 ☠️"]
+    let difficulties = ["1", "2", "3", "4", "5"]
     @State private var seasonStart = Date()
     @State private var seasonEnd = Date()
     @State var link : String = ""
@@ -58,11 +58,11 @@ struct NewSpot: View {
                             do {
                                 let dateFormatter = DateFormatter()
                                 
+                                dateFormatter.dateFormat = "YYYY-MM-dd"
+                                
                                 var newSpot = Record(id: 9, name: name, surfBreak: surfBreak, difficultyLevel: Int(diff.components(separatedBy: "")[0])!, favorite: false, stateCountry: "\(state), \(country)", address:"\(name), \(state), \(country)", link: link, photos: img, seasonStart: dateFormatter.string(from:seasonStart), seasonEnd: dateFormatter.string(from:seasonEnd), createdTime: "maintenant")
                                 
                                 let jsonSpot = try JSONEncoder().encode(newSpot)
-                                
-                                
                                 
                                 let url = URL(string: "http://192.168.5.241:8000/spot")!
                                 var request = URLRequest(url: url)
@@ -72,6 +72,7 @@ struct NewSpot: View {
                                 
                                 let (data, _) = try await URLSession.shared.upload(for: request, from: jsonSpot)
                                 print("Added")
+                                print(dateFormatter.string(from:seasonStart))
                                 
                             } catch {
                                 print("errorre")
